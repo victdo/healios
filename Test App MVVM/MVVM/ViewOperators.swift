@@ -61,12 +61,6 @@ func <- (left: Command, right: UIBarButtonItem) -> Disposable {
     return right.rx.tap.subscribe(onNext: { left.execute() })
 }
 
-//func <- (left: Property<NSURL?>, right: UIImageView) {
-//    left.change
-//        .map { $0! }
-//        .subscribe(onNext: { right.af_setImage(withURL: $0 as URL) })
-//}
-
 func <-<T> (left: AsyncCommand<T>, right: UIButton) {
     right.rx.tap.subscribe(onNext: { left.execute() }).dispose()
     Observable.combineLatest(left.executing, left.canExecute) { !$0 && $1 }.subscribe(onNext: { right.isEnabled = $0 }).dispose()
