@@ -38,7 +38,7 @@ class PostDetailViewController : UIViewController, CommentCatcherTableView {
                         break
                 }
             }
-        }
+        }.dispose()
     }
     
 }

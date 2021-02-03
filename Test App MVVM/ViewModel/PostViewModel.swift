@@ -24,20 +24,20 @@ class PostViewModel: ViewModel {
     
     
     lazy var getPostsCommand: AsyncCommand<[PostRealm]> = AsyncCommand {
-        return self.repService.loadPosts().do(onNext: { [unowned self] result in
-            self.posts.set(value: result)
+        return self.repService.loadPosts().do(onNext: { [weak self] result in
+            self?.posts.set(value: result)
         })
     }
     
     lazy var getUsersCommand: AsyncCommand<[UserRealm]> = AsyncCommand {
-        return self.repService.loadUsers().do(onNext: { [unowned self] result in
-            self.users.set(value: result)
+        return self.repService.loadUsers().do(onNext: { [weak self] result in
+            self?.users.set(value: result)
         })
     }
     
     lazy var getCommentsCommand: AsyncCommand<[CommentRealm]> = AsyncCommand {
-        return self.repService.loadComments().do(onNext: { [unowned self] result in
-            self.comments.set(value: result)
+        return self.repService.loadComments().do(onNext: { [weak self] result in
+            self?.comments.set(value: result)
         })
     }
     

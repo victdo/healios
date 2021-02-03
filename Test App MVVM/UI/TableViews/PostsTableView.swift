@@ -16,7 +16,7 @@ protocol PostsCatcherTableView: class {
 class PostsTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private var tableView: UITableView
-    var catcherController: PostsCatcherTableView?
+    weak var  catcherController: PostsCatcherTableView?
     var posts = [PostRealm]()
     
     init(tableView: UITableView) {

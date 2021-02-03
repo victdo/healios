@@ -10,6 +10,25 @@ import RxSwift
 
 class PostsViewController : UIViewController, CommentCatcherTableView, PostsCatcherTableView {
     
+    let viewModel = PostViewModel()
+    @IBOutlet weak var postsTableView: UITableView!
+    var postsTableViewDataSource: PostsTableViewDataSource!
+    let disposeBag = DisposeBag()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.getPostsCommand.execute()
+        viewModel.getCommentsCommand.execute()
+        viewModel.getUsersCommand.execute()
+        
+        
+        self.viewModel.posts.change.subscribe(onNext: { _ in
+            self.setupPostTableView()
+        }).disposed(by: disposeBag)
+
+    }
+    
     func currentSelected(_ indexPath: IndexPath) {
         let controller = PostDetailViewController.instantiate()
         
@@ -23,24 +42,6 @@ class PostsViewController : UIViewController, CommentCatcherTableView, PostsCatc
         controller.viewModel.post.set(value: comments)
         
         navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    
-    let viewModel = PostViewModel()
-    @IBOutlet weak var postsTableView: UITableView!
-    
-    var postsTableViewDataSource: PostsTableViewDataSource!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        viewModel.getPostsCommand.execute()
-        viewModel.getCommentsCommand.execute()
-        viewModel.getUsersCommand.execute()
-       
-        self.viewModel.posts.change.subscribe(onNext:{ _ in
-            self.setupPostTableView()
-        })
     }
 }
 

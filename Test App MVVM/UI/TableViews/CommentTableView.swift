@@ -14,7 +14,7 @@ protocol CommentCatcherTableView: class {
 class CommentTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private var tableView: UITableView
-    var catcherController: CommentCatcherTableView?
+    weak var catcherController: CommentCatcherTableView?
     var comments = [CommentRealm]()
     
     init(tableView: UITableView) {

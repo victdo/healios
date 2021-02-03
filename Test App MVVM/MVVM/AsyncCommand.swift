@@ -40,16 +40,15 @@ class AsyncCommand<T> {
         self.disposable?.dispose()
         
         disposable = Observable.deferred(function)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.instance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.instance)
             .map { Result.Success(value: $0) }
-            .catchError { Observable.just(Result.Failure(error: $0)) }
-            .do { [weak self] in
+            .catch {Observable.just(Result.Failure(error: $0))}
+            .do(onDispose:  { [weak self] in
                 self?.executing.onNext(false)
                 self?.after.onNext(nil)
-            }
+            })
             .subscribe(onNext:{ [weak self] in self?.result.onNext($0) })
-        //            .addDisposableTo(bag)
     }
     
     func subscribe(onNext: @escaping (Result<T>) -> Void) -> Disposable {
