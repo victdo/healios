@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CommentCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="104" id="rF8-eS-NFN" customClass="CommentCell" customModule="Test_App_MVVM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rF8-eS-NFN" id="NFO-ek-7DJ">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-rf-vPV">
+                        <rect key="frame" x="0.0" y="5" width="394" height="21.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yE4-ef-cpl">
+                        <rect key="frame" x="0.0" y="31.5" width="394" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enf-1Y-9LR">
+                        <rect key="frame" x="0.0" y="60" width="394" height="34"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yE4-ef-cpl" firstAttribute="leading" secondItem="NFO-ek-7DJ" secondAttribute="leading" id="8mz-Yc-VvS"/>
+                    <constraint firstAttribute="trailing" secondItem="Enf-1Y-9LR" secondAttribute="trailing" constant="20" id="IKJ-Qp-Jtw"/>
+                    <constraint firstItem="Enf-1Y-9LR" firstAttribute="top" secondItem="yE4-ef-cpl" secondAttribute="bottom" constant="11" id="dXr-8b-DrS"/>
+                    <constraint firstItem="yE4-ef-cpl" firstAttribute="top" secondItem="zhg-rf-vPV" secondAttribute="bottom" constant="5" id="irq-A4-yYK"/>
+                    <constraint firstItem="zhg-rf-vPV" firstAttribute="leading" secondItem="NFO-ek-7DJ" secondAttribute="leading" id="lw5-lC-4Kg"/>
+                    <constraint firstItem="zhg-rf-vPV" firstAttribute="top" secondItem="NFO-ek-7DJ" secondAttribute="top" constant="5" id="otW-70-8k8"/>
+                    <constraint firstItem="Enf-1Y-9LR" firstAttribute="leading" secondItem="NFO-ek-7DJ" secondAttribute="leading" id="t89-vi-JUp"/>
+                    <constraint firstAttribute="bottom" secondItem="Enf-1Y-9LR" secondAttribute="bottom" constant="10" id="uik-uv-B6p"/>
+                    <constraint firstAttribute="trailing" secondItem="zhg-rf-vPV" secondAttribute="trailing" constant="20" id="vlZ-2s-xpy"/>
+                    <constraint firstAttribute="trailing" secondItem="yE4-ef-cpl" secondAttribute="trailing" constant="20" id="waH-Zq-1KO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bodyLbl" destination="Enf-1Y-9LR" id="Z8m-Vd-AaO"/>
+                <outlet property="emailLbl" destination="yE4-ef-cpl" id="8tK-do-PlJ"/>
+                <outlet property="nameLbl" destination="zhg-rf-vPV" id="95I-5w-CVC"/>
+            </connections>
+            <point key="canvasLocation" x="60.869565217391312" y="105.80357142857143"/>
+        </tableViewCell>
+    </objects>
+</document>
